@@ -1,8 +1,4 @@
 page-chat {
-    .message-time {
-        font-size: 12px $im;
-        color: gray;
-    }
     ion-list {
         code,
         pre {
@@ -12,6 +8,8 @@ page-chat {
     ion-textarea {
         textarea {
             margin: 0px 8px 0px 8px $im;
+            border-bottom: 10%;
+            border-bottom-color: orange;
         }
     }
     .chatBubble {
@@ -24,7 +22,7 @@ page-chat {
             height: 40px;
             border-radius: 50%;
             position: absolute;
-            bottom: 10px;
+            bottom: 0px;
         }
         img.profile-pic.left {
             left: 10px;
@@ -81,6 +79,15 @@ page-chat {
         .chat-bubble.right a.autolinker {
             color: #fff;
             font-weight: bold;
+        }
+        .robint {
+            padding-left: 85%;
+            color: #000$im;
+        }
+        .robint1 {
+            padding-left: 17%;
+            font-style: italic;
+            font-size: 12px;
         }
     }
 }

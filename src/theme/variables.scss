@@ -21,13 +21,13 @@ $app-direction: ltr;
 // to match your app's branding. Ionic uses a Sass map of
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
-$background-ios-color: #FAFAFA;
-$background-md-color: #FAFAFA;
-$background-wp-color: #FAFAFA;
+$background-ios-color: #F1F1F1;
+$background-md-color: #F1F1F1;
+$background-wp-color: #F1F1F1;
 $list-background-color: #FAFAFA;
 $header-font-size: 2.2rem;
 $header-font-weight: 500;
-$colors: ( dark-primary : #1976D2, primary : #2196F3, light : #BBDEFB, text-icons : #FFFFFF, secondary : #FF5722, primary-text : #212121, secondary-text: #727272, divider : #B6B6B6, background-color : #FAFAFA, danger : #f53d3d, dark : #222, favorite : #69BB7B, facebook : #3b5998, googleplus: #dc4e41, linkedin : #0077b5, headercolor: #004CFF, tabbut: #3571FF);
+$colors: ( dark-primary: #1976D2, primary: #2196F3, light: #BBDEFB, text-icons: #FFFFFF, secondary: #FF5722, primary-text: #212121, secondary-text: #727272, divider: #B6B6B6, background-color: #FAFAFA, danger: #f53d3d, dark: #222, favorite: #69BB7B, facebook: #3b5998, googleplus: #dc4e41, linkedin: #0077b5, headercolor: #004CFF, tabbut: #3571FF);
 //To make the input use the secondary color when active, instead of primary
 //https://github.com/driftyco/ionic/blob/2.0/src/components/input/input.md.scss
 //https://github.com/driftyco/ionic/blob/2.0/src/components/label/label.md.scss

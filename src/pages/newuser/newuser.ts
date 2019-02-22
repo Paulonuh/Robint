@@ -19,6 +19,9 @@ import { AngularFirestore } from '../../../node_modules/angularfire2/firestore';
 export class NewuserPage {
 
   form: FormGroup;
+  email: String;
+  password: String;
+  username: String;
 
 
   constructor(public navCtrl: NavController,

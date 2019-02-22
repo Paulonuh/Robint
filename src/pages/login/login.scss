@@ -1,53 +1,32 @@
 page-login {
-    
-    .login-page{
-            
-            background-image: url("../../assets/imgs/background.jpg") !important;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-    .login-container {
-            border-radius: 10px;
-            opacity: 0.8;
-            width: 90%;
-            height: 90% $im;
-            text-align: center;
-            background-color: white;
-            opacity: none $im;
-            
-         }
-    .login-logo{
-             vertical-align: center;
-             text-align: center;
-         }
-     h1{
-        margin-left: 20px;
-        padding-top: 20px $im;
-        font-size: 15px;
-        text-transform: uppercase;
-        color: #888; 
-     }
-     ion-item{
-         #icon1{
-             position: relative;
-             top: 5px;
-             color: #888;
-         }
-         &.input-has-focus{
-             border: none $im;
-             box-shadow: none $im;
-             ion-icon{
-                 color: #488aff;
-             }
-         }
-
-         .item-inner{
-             border: none $im;
-             box-shadow: none $im;
-         }
-     }
-     .forgotten-p{
-        margin-left: 57%$im;
+    div#logo {
+        margin-top: 25px;
+        margin-bottom: 12px;
+    }
+    .content {
+        background-color: color($colors, primary);
+    }
+    .item {
+        background-color: color($colors, primary);
+    }
+    ion-label {
+        color: color($colors, light);
+        text-align: center;
+        margin: 0;
+    }
+    .label {
+        margin: 0 0 5px 0;
+    }
+    ion-input {
+        padding-left: 10px;
+        background-color: #fff;
+        border-radius: 500px;
+        margin: 0 0 25px 0;
+    }
+    .esqueceu {
+        padding-left: 50%$im;
+    }
+    .registro {
+        padding-top: 30px$im;
     }
 }

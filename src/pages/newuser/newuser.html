@@ -1,34 +1,39 @@
-
-
 <ion-content padding class="newuser-page" scroll="false">
 
+  <div id="logo" padding text-center>
+    <img src="./assets/imgs/chat.svg" width="200px" height="200px">
+  </div>
 
-  <ion-grid class="newuser-cont">
-    <ion-grid class="newuser-container">
-      <ion-list>
+  <div padding>
+    <ion-segment color="light">
+      <ion-label>
+        CRIAR CONTA
+      </ion-label>
 
-        <form [formGroup]='form'>
-          <ion-item>
-            <ion-icon align-left name="ios-person" item-start ></ion-icon>
-            <ion-label floating>Nome</ion-label>
-            <ion-input formControlName='username' type="text" [(ngModel)]="username"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-icon align-left name="ios-mail" item-start ></ion-icon>
-            <ion-label floating>Email</ion-label>
-            <ion-input email formControlName='email' type="email" [(ngModel)]="email"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-icon align-left name="ios-key" item-start ></ion-icon>
-            <ion-label floating>password</ion-label>
-            <ion-input formControlName='password' type="password" [(ngModel)]="password"></ion-input>
-          </ion-item>
-        </form>
+    </ion-segment>
+  </div>
 
-      </ion-list>
-    </ion-grid>
+  <div>
 
-    <button ion-button block [disabled]='!form.valid' (click)="novoRegistro(email,password,username)">Criar</button>
-    <button ion-button block outline (click)="back()">Fazer Login</button>
-  </ion-grid>
+    <form [formGroup]='form'>
+
+      <ion-input formControlName='username' type="text" [(ngModel)]="username" placeholder="Nome"></ion-input>
+
+      <ion-input email formControlName='email' type="email" [(ngModel)]="email" placeholder="Email"></ion-input>
+
+      <ion-input formControlName='password' type="password" [(ngModel)]="password" placeholder="Password"></ion-input>
+
+    </form>
+
+    <div padding text-center>
+      <button ion-button round color="light" icon-right [disabled]='!form.valid'
+        (click)="novoRegistro(email,password,username)">Enviar <ion-icon name="log-in">
+        </ion-icon></button>
+
+      <button ion-button round color="light" icon-right (click)="back()">Voltar ao Login <ion-icon name="log-out">
+        </ion-icon> </button>
+    </div>
+
+  </div>
+
 </ion-content>

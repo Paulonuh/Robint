@@ -14,36 +14,16 @@
 
   <ion-list no-lines *ngFor="let message  of list | async">
 
-    <!--  <ion-item remove-nowrap class="userItem">
 
-
-      <ion-avatar item-start>
-        <img [src]="message?.user?.picture" onError="this.src='assets/imgs/no-img.png'">
-      </ion-avatar>
-      <h2>{{message?.user?.name}}</h2>
-      <p>{{message?.message}}</p>
-      <ion-note item-right class="message-time">{{message?.created | date:'dd/MM/yy HH:mm:ss'}}</ion-note>
-    </ion-item>
-
-    <ion-item remove-nowrap>
-      <ion-avatar item-start>
-        <img src="assets/imgs/robint.jpg" onError="this.src='assets/imgs/no-img.png'">
-      </ion-avatar>
-      <h2>Robint</h2>
-      <b></b>
-      <p [innerHtml]="message?.messagebot"></p>
-      <ion-note item-right class="message-time">{{message?.created | date:'dd/MM/yy HH:mm:ss'}}</ion-note>
-
-
-    </ion-item> -->
     <ion-item>
       <div class="chatBubble">
         <img class="profile-pic left" [src]="message?.user?.picture" onError="this.src='assets/imgs/no-img.png'">
         <div class="chat-bubble left">
           <div class="message">{{message?.message}}</div>
           <div class="message-detail">
-            <span style="font-weight:bold;">{{message?.user?.name}} </span>,
-            <span>{{message?.created | date:'dd/MM/yy HH:mm:ss'}}</span>
+            <br>
+            <span style="font-weight:bold;">{{message?.user?.name}} </span>
+            <span class="robint1">{{message?.created | date:'dd/MM/yy HH:mm '}}</span>
           </div>
         </div>
       </div>
@@ -54,8 +34,10 @@
         <div class=" chat-bubble right">
           <div class="message" [innerHtml]="message?.messagebot"></div>
           <div class="message-detail">
-            <span style="font-weight:bold;">Robint </span>,
-            <span>{{message?.created | date:'dd/MM/yy HH:mm:ss'}}</span>
+            <br>
+
+            <span class="robint" style="font-weight:bold;">Robint </span>
+
           </div>
         </div>
       </div>

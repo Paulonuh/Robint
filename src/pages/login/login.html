@@ -1,49 +1,33 @@
 <ion-content padding class="login-page" scroll="false">
 
-  <ion-grid style height="100%">
-    <ion-row justify-content-centeralign-items-center style height="80%">
 
-      <ion-grid>
-        <ion-row align-items-center>
-          <ion-col class="login-logo">
-            <img src="/assets/imgs/logo.svg" width="200px" height="200px">
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+  <div id="logo" padding text-center>
+    <img src="./assets/imgs/chat.svg" width="200px" height="200px">
+  </div>
 
-      <ion-grid class="login-container">
-      
-        <ion-row align-center>
-          
-            <ion-list inset>
-              <ion-item>
-                <ion-icon  align-left name="ios-mail" item-start ></ion-icon>
-                <ion-label floating>Digite seu e-mail</ion-label>
-                <ion-input type="email" [(ngModel)]="username"></ion-input>
-              </ion-item>
+  <div padding>
+    <ion-segment color="light">
+      <ion-label>
+        ROBINT
+      </ion-label>
 
-              <ion-item>
-                <ion-icon align-left name="ios-key" item-start ></ion-icon>
-                <ion-label floating>password</ion-label>
-                <ion-input [type]="inputType" [(ngModel)]="password"></ion-input>
-                <ion-icon (click)="changeType()" id="icon1" name="md-eye-off" item-end></ion-icon>
-              </ion-item>
-            </ion-list>
-        </ion-row>
-      </ion-grid>
+    </ion-segment>
+  </div>
 
+  <div>
 
+    <ion-input type="email" [(ngModel)]="username" name="email" placeholder="Email"></ion-input>
 
-      <ion-grid>
+    <ion-input type="password" [(ngModel)]="password" name="password" placeholder="Password"></ion-input>
+    <ion-label (click)="esqueceuSenha()" class="esqueceu"> Esqueceu a senha?</ion-label>
+    <div padding text-center>
+      <button ion-button round color="light" icon-right (click)="loginUser()">
+        SIGNIN <ion-icon name="log-in"></ion-icon>
+      </button>
+    </div>
 
-        <ion-row>
-          <ion-col>
-            <button ion-button block (click)="loginUser()">Login</button>
-            <button ion-button block outline (click)="criarConta()">Registrar-se</button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-row>
-  </ion-grid>
-
+  </div>
+  <div class="registro">
+    <ion-item (click)="criarConta()">Não é usuário? Cadastre-se.</ion-item>
+  </div>
 </ion-content>

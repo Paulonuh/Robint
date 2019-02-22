@@ -104,7 +104,9 @@ export class LoginPage {
   criarConta() {
     this.navCtrl.setRoot('NewuserPage');
   }
-  
+  esqueceuSenha(){
+    this.navCtrl.setRoot('ForgottenPage')
+  }
   changeType(){
    
     this.inputType = this.inputType === 'password' ? 'text' : 'password';

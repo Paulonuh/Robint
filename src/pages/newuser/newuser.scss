@@ -1,55 +1,26 @@
 page-newuser {
-
-    .newuser-page{
-        background-image: url("../../assets/imgs/background2.jpg") $im;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+    div#logo {
+        margin-top: 25px;
+        margin-bottom: 12px;
     }
-    .newuser-container {
+    .content {
+        background-color: color($colors, primary);
+    }
+    .item {
+        background-color: color($colors, primary);
+    }
+    ion-label {
         
-
-        border-radius: 10px;
-        opacity: 0.8;
-        width: 100%;
+        color: color($colors, light);
         text-align: center;
-        background-color: white;
-        opacity: none!important;
-        margin-bottom: 10%;
-     }
-     
-     .newuser-cont {
-        padding-top: 60%;
-             }
-
-
-    form{
-        border: none $im;
+        margin: 0;
     }
-
-    ion-item{
-                   
-             ion-icon{
-                    
-                    position: relative;
-                    top: 5px;
-                    color: #888;
-                }
-                &.input-has-focus{
-                    border: none $im;
-                    box-shadow: none $im;
-                    ion-icon{
-                        color: #488aff;
-                    }
-                }
-                &.ng-pristine{
-                    border: none $im;
-                    box-shadow: none $im;
-                }
-       
-                .item-inner{
-                    border: none $im;
-                    box-shadow: none $im;
-                }
-            }
+    .label {
+        margin: 0 0 5px 0;
+    }
+    ion-input {
+        background-color: #fff;
+        border-radius: 500px;
+        margin: 0 0 20px 0;
+    }
 }
