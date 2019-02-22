@@ -1,0 +1,99 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{data.title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card>
+
+    <ion-item>
+      <button *ngIf="data.uid === afAuth.auth.currentUser.uid" (click)="open(data)" ion-button item-right icon-only>
+
+        <ion-icon name="more"></ion-icon>
+      </button>
+      <ion-avatar item-start>
+        <img [src]="data?.user?.picture" onError="this.src='assets/imgs/no-img.png'">
+      </ion-avatar>
+      <ion-row>
+        <h2>{{data.user.name}}</h2>
+
+
+
+      </ion-row>
+
+
+    </ion-item>
+
+    <ion-card-content>
+      <h2>{{data.title}}</h2>
+      <p>{{data.body}}</p>
+
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col center text-right>
+        <p class="comment">
+          <ion-note item-right (click)="commentControl()">Comentários</ion-note>
+        </p>
+      </ion-col>
+      <ion-col center text-right>
+        <p class="hour">
+          <ion-note item-right class="message-time">{{data.created_at | date:'dd/MM/yyyy HH:mm:ss'}}</ion-note>
+        </p>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+  <ion-grid [hidden]="commentbol == false">
+    <ion-card *ngFor="let postcomment of list | async; index as idx">
+      <ion-item>
+        
+        <ion-avatar item-start>
+          <img [src]="postcomment?.user?.picture" onError="this.src='assets/imgs/no-img.png'">
+        </ion-avatar>
+
+        <button *ngIf="postcomment.uid === afAuth.auth.currentUser.uid" (click)="openComment(data,idx, postcomment)" ion-button item-right icon-only>
+
+            <ion-icon name="more"></ion-icon>
+          </button>
+        <ion-row>
+          <h2>{{postcomment?.user?.name}}</h2>
+        </ion-row>
+      </ion-item>
+
+      <ion-card-content>
+        <p>{{postcomment.comment}}</p>
+      </ion-card-content>
+      <ion-col center text-right>
+          <p class="hour">
+            <ion-note item-right class="message-time">{{postcomment.created_at | date:'dd/MM/yyyy HH:mm:ss'}}</ion-note>
+          </p>
+        </ion-col>
+    </ion-card>
+  </ion-grid>
+
+
+</ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-10>
+        <ion-textarea placeholder="Comentário" [(ngModel)]="comment"></ion-textarea>
+
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button icon-only (click)="comentar(comment)">
+          <ion-icon name="md-send"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-footer>

@@ -1,0 +1,38 @@
+page-userinfo {
+    .box-user{
+        text-align: center;
+        padding-top: 30px; 
+        img{
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+               
+        }
+        h2{
+            font-size: 18px;
+            color: #777;
+            font-weight: 700;
+            padding: 0 $im;
+            margin: 0 $im;
+            margin-top: 10px;
+        }
+        h3{
+            font-size: 14px;
+            color: #777;
+            font-weight: 300;
+            padding: 0 $im;
+            margin: 0 $im;
+            margin-top: 10px;
+        }
+    }
+    ion-spinner * {
+        
+        stroke: #fff $im;
+        fill: none $im;
+      }
+    .btn-save{
+        &[disabled]{
+            opacity: 1 $im;
+        }
+    }
+}

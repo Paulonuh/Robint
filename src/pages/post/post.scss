@@ -1,0 +1,17 @@
+page-post {
+
+    
+        .note-md {
+            color:  #488aff;
+        }
+
+        .card-md h2 {
+            font-weight: bold;
+        }
+        .limitedtext{
+    overflow: hidden;
+     display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+        }
+    }

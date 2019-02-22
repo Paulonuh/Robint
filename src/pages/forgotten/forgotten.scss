@@ -1,0 +1,55 @@
+page-forgotten {
+    
+
+        .forgotten-page{
+            background-image: url("../../assets/imgs/background3.jpg") $im;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .forgotten-container {
+            
+    
+            border-radius: 10px;
+            opacity: 0.8;
+            width: 100%;
+            text-align: center;
+            background-color: white;
+            opacity: none!important;
+            margin-bottom: 10%;
+         }
+         
+         .forgotten-cont {
+            padding-top: 60%;
+                 }
+    
+    
+        
+    
+        ion-item{
+                       
+                 ion-icon{
+                        
+                        position: relative;
+                        top: 5px;
+                        color: #888;
+                    }
+                    &.input-has-focus{
+                        border: none $im;
+                        box-shadow: none $im;
+                        ion-icon{
+                            color: #488aff;
+                        }
+                    }
+                    &.ng-pristine{
+                        border: none $im;
+                        box-shadow: none $im;
+                    }
+           
+                    .item-inner{
+                        border: none $im;
+                        box-shadow: none $im;
+                    }
+                }
+    
+}

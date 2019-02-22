@@ -1,0 +1,15 @@
+<ion-header no-border >
+  <ion-navbar color="headercolor">
+    <ion-title>Robint</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="md-exit"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-tabs color="tabbut" tabsPlacement="top">
+    <ion-tab [root]="tab1Root" tabTitle="Fórum" tabIcon="ios-paper-outline"></ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="Robint" tabIcon="ios-chatbubbles-outline"></ion-tab>
+    <ion-tab [root]="tab3Root" tabTitle="Usuário" tabIcon="md-contact"></ion-tab>
+  </ion-tabs>

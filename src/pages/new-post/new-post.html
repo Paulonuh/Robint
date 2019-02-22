@@ -1,0 +1,36 @@
+<!--
+  Generated template for the NewPostPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Novo Post</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+
+    <form [formGroup]='form'>
+      <ion-item>
+        <ion-label floating>Titulo</ion-label>
+        <ion-input formControlName='title' type="text" [(ngModel)]="post.title"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Texto</ion-label>
+          <ion-input formControlName='body'  type="text" [(ngModel)]="post.body"></ion-input>
+        </ion-item>
+      </form>
+
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar >
+    <button ion-button full [disabled]='!form.valid' color="secondary" (click)="create()">Criar Post</button>
+  </ion-toolbar>
+</ion-footer>
