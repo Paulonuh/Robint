@@ -9,18 +9,25 @@ import { timer } from 'rxjs/observable/timer';
   templateUrl: 'app.html'
 })
 export class MyApp {
- rootPage:string = localStorage.getItem('user_uid') ? 'TabsPage' : 'LoginPage';
- 
- showSplash = true;
+  rootPage: string = localStorage.getItem('user_uid') ? 'TabsPage' : 'LoginPage';
+
+  showSplash = true;
+  lastTimeBackPress = 0;
+
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
+
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
+
       splashScreen.hide();
-      timer(3000).subscribe(()=> this.showSplash = false)
+      timer(3000).subscribe(() => this.showSplash = false)
+
+
     });
   }
+
 }
 

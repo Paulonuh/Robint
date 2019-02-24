@@ -15,70 +15,68 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 @Component({
   selector: 'page-updatepost',
   templateUrl: 'updatepost.html',
-  providers:[AngularFireAuth]
+  providers: [AngularFireAuth]
 })
 export class UpdatepostPage {
 
-  data:any = {};
+  data: any = {};
   form: FormGroup;
   colletction: AngularFirestoreCollection<any>;
-  list:Observable<any>;
-  postdoc:AngularFirestoreDocument<any>;
-  nameaux:any = {}
+  list: Observable<any>;
+  postdoc: AngularFirestoreDocument<any>;
+  nameaux: any = {}
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     public afAuth: AngularFireAuth,
-    public db:AngularFirestore,
+    public db: AngularFirestore,
     public toastCtrl: ToastController,
-    public app:App,
+    public app: App,
     public formBuilder: FormBuilder,
     public viewCtrl: ViewController) {
-      
-      this.data = this.navParams.get('dados');
-      this.postdoc = this.db.doc(`posts/${navParams.get('id')}`);
-      
-      
-      this.form = formBuilder.group({
-        title: ['',[Validators.required,Validators.minLength(3)]],
-        body:['',[Validators.required,Validators.minLength(6)]] 
-      })
 
-      
+    this.data = this.navParams.get('dados');
+    this.postdoc = this.db.doc(`posts/${navParams.get('id')}`);
+
+
+    this.form = formBuilder.group({
+      title: ['', [Validators.required, Validators.minLength(3)]],
+      body: ['', [Validators.required, Validators.minLength(6)]]
+    })
+
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UpdatepostPage');
-    
-    console.log(this.data);
-    
-    
+
+
+
   }
 
-  update(){
+  update() {
 
     this.viewCtrl.showBackButton(false);
-    
-    this.postdoc.set(this.data).then(() =>{
+
+    this.postdoc.set(this.data).then(() => {
 
       let toast = this.toastCtrl.create({
         message: 'Alterado com sucesso',
         duration: 3000,
         position: 'bottom'
-  
+
       })
-        toast.present();
-        toast.onDidDismiss(()=>{
+      toast.present();
+      toast.onDidDismiss(() => {
         this.app.getRootNav().pop();
-        
-        });
 
-      
-  }).catch(()=>{
-    this.viewCtrl.showBackButton(true);
-  })
+      });
 
-   
+
+    }).catch(() => {
+      this.viewCtrl.showBackButton(true);
+    })
+
+
   }
 }

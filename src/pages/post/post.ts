@@ -1,4 +1,4 @@
-import { Component, ViewChild} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, IonicPage, ActionSheetController, NavParams, Content, App, ToastController } from 'ionic-angular';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
   selector: 'page-post',
   templateUrl: 'post.html',
   providers: [AngularFireAuth],
- 
+
 })
 export class PostPage {
 
@@ -32,17 +32,17 @@ export class PostPage {
   listbkp: any[] = [];
   list: Observable<any>;
   collection: AngularFirestoreCollection<any>;
-  collection2:any
-  
+  collection2: any
+
   isDone: boolean = false;
-  
+
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public db: AngularFirestore,
     public app: App,
-    public afAuth:AngularFireAuth,
+    public afAuth: AngularFireAuth,
     public toastCtrl: ToastController,
     public actionSheetCtrl: ActionSheetController
   ) {
@@ -75,8 +75,8 @@ export class PostPage {
     this.app.getRootNav().push('UpdatepostPage', { id: postx.id, dados: postx })
 
   }
-  detalhar(data){
-    this.app.getRootNav().push('DetailsPage', {id: data.id, dados: data})
+  detalhar(data) {
+    this.app.getRootNav().push('DetailsPage', { id: data.id, dados: data })
   }
   delete(postx, index) {
 
@@ -95,8 +95,6 @@ export class PostPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PostPage');
-
 
   }
 

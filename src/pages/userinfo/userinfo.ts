@@ -49,7 +49,7 @@ export class UserinfoPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UserinfoPage');
+
   }
 
   save(name: string) {
@@ -76,7 +76,7 @@ export class UserinfoPage {
           text: 'Tirar Foto',
           icon: 'ios-camera',
           handler: () => {
-            console.log('Archive clicked');
+
             this.takePicture(1);
           }
         },
@@ -84,7 +84,7 @@ export class UserinfoPage {
           text: 'Galeria',
           icon: 'md-images',
           handler: () => {
-            console.log('Cancel clicked');
+
             this.takePicture(0);
           }
         }

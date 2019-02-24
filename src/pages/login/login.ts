@@ -1,8 +1,9 @@
 import { ForgottenPage } from './../forgotten/forgotten';
 import { Component } from '@angular/core';
-import { NavController, AlertController, IonicPage, ToastController } from 'ionic-angular';
+import { NavController, AlertController, IonicPage, ToastController, Platform } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from '../../../node_modules/angularfire2/firestore';
+import { platformBrowser } from '@angular/platform-browser';
 
 @IonicPage()
 @Component({
@@ -15,21 +16,25 @@ export class LoginPage {
   username: string = "";
   password: string = "";
 
-  inputType:string='password';
+  inputType: string = 'password';
 
   constructor(public navCtrl: NavController,
     private alertCtrl: AlertController,
     private afAuth: AngularFireAuth,
     public toastCtrl: ToastController,
-    public db: AngularFirestore,
+    public db: AngularFirestore, public platform: Platform
 
   ) {
+    platform.registerBackButtonAction(() => this.exit());
 
   }
+  exit() {
+    this.platform.exitApp();
 
-  forgotten(){
-  this.navCtrl.setRoot("ForgottenPage");
-}
+  }
+  forgotten() {
+    this.navCtrl.setRoot("ForgottenPage");
+  }
   alert(title: string, message: string) {
     let alertBox = this.alertCtrl.create({
       title: title,
@@ -104,11 +109,11 @@ export class LoginPage {
   criarConta() {
     this.navCtrl.setRoot('NewuserPage');
   }
-  esqueceuSenha(){
+  esqueceuSenha() {
     this.navCtrl.setRoot('ForgottenPage')
   }
-  changeType(){
-   
+  changeType() {
+
     this.inputType = this.inputType === 'password' ? 'text' : 'password';
   }
 }

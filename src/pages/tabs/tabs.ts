@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController} from 'ionic-angular';
+import { IonicPage, NavController, Platform } from 'ionic-angular';
 
 /**
  * Generated class for the TabsPage page.
@@ -21,8 +21,8 @@ export class TabsPage {
   tab2Root = 'ChatPage';
   tab3Root = 'UserinfoPage';
 
-  constructor(public navCtrl: NavController, ) {
-
+  constructor(public navCtrl: NavController, platform: Platform) {
+    platform.registerBackButtonAction(() => this.logout());
   }
 
   logout() {
@@ -31,5 +31,4 @@ export class TabsPage {
     this.navCtrl.setRoot('LoginPage');
     localStorage.clear();
   }
-
 }

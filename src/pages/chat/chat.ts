@@ -1,5 +1,5 @@
 
-import { Component, ViewChild, NgZone  } from '@angular/core';
+import { Component, ViewChild, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams, Content, AlertController, Platform } from 'ionic-angular';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from "angularfire2/firestore";
 import { Observable } from 'rxjs';
@@ -19,7 +19,7 @@ export class ChatPage {
   questions = [];
 
 
-//------------------------------------
+  //------------------------------------
   @ViewChild(Content) content: Content;
 
   user: any = {};
@@ -33,30 +33,30 @@ export class ChatPage {
 
   constructor(
     public platform: Platform,
-     public ngZone: NgZone,
-     public navCtrl: NavController,
-     public navParams: NavParams,
-     public db: AngularFirestore,
-     private alertCtrl: AlertController,
-     private afAuth: AngularFireAuth
-    ) {
+    public ngZone: NgZone,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public db: AngularFirestore,
+    private alertCtrl: AlertController,
+    private afAuth: AngularFireAuth
+  ) {
 
 
 
     platform.ready().then(() => {
       ApiAIPromises.init({
         clientAccessToken: "0527d55a27c440a886336964ea57b9b5",
-        lang:"pt-BR"
-      }).then(result => console.log(result));
-        
-        
+        lang: "pt-BR"
+      })
+
+
     })
- 
 
 
-//---------------------------------------------
+
+    //---------------------------------------------
     this.username = this.navParams.get('user_name');
-    this.collection = this.db.collection('messages', ref => ref.where('uid','==',this.afAuth.auth.currentUser.uid).orderBy('created', 'asc'));
+    this.collection = this.db.collection('messages', ref => ref.where('uid', '==', this.afAuth.auth.currentUser.uid).orderBy('created', 'asc'));
     this.list = this.collection.stateChanges(['added']).pipe(map(actions => {
       actions.map(action => {
         let data = action.payload.doc.data();
@@ -66,55 +66,53 @@ export class ChatPage {
         this.listbkp.push(data);
       });
 
-      
-     setTimeout(() => {
-      this.content.scrollToBottom(300);
-     }, 300);
+
+      setTimeout(() => {
+        this.content.scrollToBottom(300);
+      }, 300);
       return this.listbkp;
-     
+
     }));
 
     this.userdoc = this.db.doc(`user/${this.afAuth.auth.currentUser.uid}`);
 
 
     this.userdoc.valueChanges().subscribe(result => {
-      console.log("Aqui: ", result);
       this.user = result;
-      console.log("thisuser", this.user);
 
     });
-  
-  //--------------------------------------------------
+
+    //--------------------------------------------------
   }
-  
- ask(question) {
+
+  ask(question) {
     this.questions.push(question);
     ApiAIPromises.requestText({
       query: question,
-      
-    })
-    .then(({result: {fulfillment: {speech}}}) => {
-       this.ngZone.run(()=> {
-       this.answers.push(speech);
 
-       let data = {
-        message: this.message,
-        created: Date.now(),
-        uid: this.afAuth.auth.currentUser.uid,
-        messagebot: speech,
-        
-      };
-      this.sendMessage(data)
-      this.message = '';
-       });
-       question = '';
     })
-    
+      .then(({ result: { fulfillment: { speech } } }) => {
+        this.ngZone.run(() => {
+          this.answers.push(speech);
+
+          let data = {
+            message: this.message,
+            created: Date.now(),
+            uid: this.afAuth.auth.currentUser.uid,
+            messagebot: speech,
+
+          };
+          this.sendMessage(data)
+          this.message = '';
+        });
+        question = '';
+      })
+
   }
-   
+
   sendMessage(data) {
 
-      this.collection.add(data).then(result => {
+    this.collection.add(data).then(result => {
       this.content.scrollToBottom(300)
     })
   }
@@ -126,12 +124,9 @@ export class ChatPage {
 
   ionViewDidLoad() {
 
-    let result = this.afAuth.auth.currentUser;
-    console.log("veja aqui ->", result);
-
 
     this.content.scrollToBottom(300);
-    console.log('ionViewDidLoad ChatPage');
+
   }
 
 }
