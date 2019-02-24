@@ -9,11 +9,9 @@
 <ion-content>
 
   <div id="ChatMessages">
-
   </div>
 
   <ion-list no-lines *ngFor="let message  of list | async">
-
 
     <ion-item>
       <div class="chatBubble">
@@ -50,7 +48,6 @@
     <ion-row>
       <ion-col col-10>
         <ion-textarea placeholder="Digite aqui..." [(ngModel)]="message"></ion-textarea>
-
       </ion-col>
       <ion-col col-2>
         <button ion-button icon-only (click)="ask(message)">
