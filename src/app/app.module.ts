@@ -12,12 +12,7 @@ import { Camera } from '@ionic-native/camera';
 
 
 var config = {
-  apiKey: "AIzaSyBGrH2VnEEJ2xo9KkSxpAOHDDoiR_lCJl4",
-  authDomain: "robintagent.firebaseapp.com",
-  databaseURL: "https://robintagent.firebaseio.com",
-  projectId: "robintagent",
-  storageBucket: "robintagent.appspot.com",
-  messagingSenderId: "53738825477"
+  /*YOUR API INFOS HERE*/
 };
 @NgModule({
   declarations: [
