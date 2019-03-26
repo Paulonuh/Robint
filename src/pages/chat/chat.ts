@@ -45,7 +45,7 @@ export class ChatPage {
 
     platform.ready().then(() => {
       ApiAIPromises.init({
-        clientAccessToken: "0527d55a27c440a886336964ea57b9b5",
+        //clientAccessToken: "YOUR DIALOGFLOW API TOKEN HERE",
         lang: "pt-BR"
       })
 
